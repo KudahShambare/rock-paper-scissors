@@ -1,53 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Rock Paper Scissors</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock Paper Scissors</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div>
+<div class="app">
 
-<div>
+  <header>
+    <h1>Rock Paper Scissors</h1>
+    <p>Pick a move, confirm before the timer runs out.</p>
+  </header>
 
-    <h2>Rock Paper Scissors</h2>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="round">Round <span id="round-label">1 / 3</span></div>
 
-    <!-- Display Screen -->
-<section id="display">
+    <div class="timer">
+      <div class="timer-label">Time Left</div>
+      <div class="timer-value" id="timer-value">10</div>
+      <div class="timer-bar"><div class="timer-bar-fill" id="timer-bar"></div></div>
+    </div>
 
-    <!-- Player 1  -->
-    <section>
+    <div class="score">You <b id="player-score">0</b> : <b id="computer-score">0</b> Computer</div>
+  </div>
 
+  <!-- BOARD: 2 CARDS -->
+  <main class="board">
 
+    <!-- PLAYER CARD -->
+    <section class="card player" id="player-card">
+      <div class="card-head">
+        <div class="card-title">You</div>
+        <div class="card-badge">PLAYER</div>
+      </div>
+
+      <div class="choice-display">
+        <div class="choice-emoji" id="player-choice-emoji">❓</div>
+        <div class="choice-label" id="player-choice-label">Waiting for your pick</div>
+        <div class="choice-sub">Choose below</div>
+      </div>
+
+      <!-- Player's 3 options -->
+      <div class="options">
+        <button class="opt" data-move="R"><span>🪨</span>Rock</button>
+        <button class="opt" data-move="P"><span>📄</span>Paper</button>
+        <button class="opt" data-move="S"><span>✂️</span>Scissors</button>
+      </div>
+
+      <div class="card-foot" id="player-status">Your turn</div>
     </section>
 
-        <!-- Player 2  -->
-    <section>
+    <div class="vs">VS</div>
 
+    <!-- COMPUTER CARD -->
+    <section class="card computer" id="computer-card">
+      <div class="card-head">
+        <div class="card-title">Computer</div>
+        <div class="card-badge">AI</div>
+      </div>
 
+      <div class="choice-display">
+        <div class="choice-emoji" id="computer-choice-emoji">❓</div>
+        <div class="choice-label" id="computer-choice-label">Hidden until reveal</div>
+        <div class="choice-sub">AI will pick</div>
+      </div>
+
+      <!-- Computer's 3 options (display only) -->
+      <div class="options">
+        <button class="opt" data-move="R" disabled><span>🪨</span>Rock</button>
+        <button class="opt" data-move="P" disabled><span>📄</span>Paper</button>
+        <button class="opt" data-move="S" disabled><span>✂️</span>Scissors</button>
+      </div>
+
+      <div class="card-foot" id="computer-status">Waiting for you</div>
     </section>
 
+  </main>
 
-</section>
+  <!-- RESULT + ACTIONS -->
+  <div class="result" id="result-text">Make your move</div>
 
-<!-- Player Options -->
+  <div class="actions">
+    <button class="btn btn-confirm" id="confirm-btn">Confirm Choice</button>
+    <button class="btn btn-reset" id="reset-btn">Reset Game</button>
+  </div>
 
-<section>
-
-    <button> Rock </button>
-    <button> Paper </button>
-    <button> Scissors </button>
-
-</section>
-
-<button> Confirm Choice </button>
+  <!-- HISTORY -->
+  <section class="history">
+    <h3>History — ( You , Computer )</h3>
+    <div class="history-list" id="history-list">
+      <span class="history-empty">No rounds yet. Example: (R,P) (P,S) (S,R)</span>
+    </div>
+  </section>
 
 </div>
 
-
-    </div>
-    
 </body>
 </html>
